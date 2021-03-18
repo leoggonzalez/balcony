@@ -1,0 +1,143 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 128px;
+}
+
+.balcony {
+  border: 3px solid black;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  border-top: 1px dotted gray;
+  border-right: 1px dotted gray;
+}
+
+.tile {
+  width: 100%;
+  padding-top: 100%;
+  background-color: lightgray;
+  border-bottom: 1px dotted gray;
+  border-left: 1px dotted gray;
+  transition: 0.2s;
+  background-size: cover;
+
+  &:hover {
+    cursor: pointer;
+    background-color: gray;
+  }
+
+  &--wooden {
+    background-image: url(./wooden.jpg);
+  }
+  &--grass {
+    background-image: url(./grass.jpg);
+  }
+}
+
+.brushes {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 16px;
+}
+
+.brush {
+  height: 90px;
+  width: 90px;
+  background-size: cover;
+  cursor: pointer;
+  transition: 0.15s;
+  box-sizing: border-box;
+
+  border: 5px solid white;
+
+  &:hover {
+    border-color: turquoise;
+  }
+
+  &--wooden {
+    background-image: url(./wooden.jpg);
+  }
+  &--grass {
+    background-image: url(./grass.jpg);
+  }
+
+  &--selected {
+    border-color: steelblue;
+  }
+}
+
+.indoors {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  border-top: 1px dotted gray;
+  border-right: 1px dotted gray;
+
+  & > * {
+    grid-column: span 3;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 1em;
+    border-bottom: 1px dotted gray;
+    border-left: 1px dotted gray;
+  }
+
+  &__column {
+    grid-column: span 2;
+  }
+  &__right-door {
+    background-color: lightskyblue;
+  }
+}
+
+#current-url-input {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  left: -100vw;
+  top: -100vh;
+}
+
+footer {
+  margin-top: 32px;
+}
+
+button {
+  background-color: teal;
+  color: white;
+  line-height: 40px;
+  padding: 0 16px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: darken(teal, 2%);
+  }
+  &:active {
+    background-color: darken(teal, 4%);
+  }
+}
+
+.copied {
+  animation: jump 0.3s ease-in-out;
+  margin-top: 24px;
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+}

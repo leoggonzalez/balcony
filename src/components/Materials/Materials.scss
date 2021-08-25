@@ -1,0 +1,16 @@
+.materials {
+  width: 100%;
+  .center {
+    text-align: center;
+  }
+  &, th, td {
+    border: 1px solid #cccccc;
+  }
+  th {
+    padding: 8px;
+  }
+  td {
+    padding: 12px;
+  }
+  border-collapse: collapse;
+}

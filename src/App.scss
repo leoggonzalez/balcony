@@ -12,11 +12,11 @@
   top: -100vh;
 }
 
-footer {
+.app__footer {
   margin-top: 32px;
 }
 
-button {
+.app__share {
   background-color: teal;
   color: white;
   line-height: 40px;
@@ -34,7 +34,7 @@ button {
   }
 }
 
-.copied {
+.copied-link {
   animation: jump 0.3s ease-in-out;
   margin-top: 24px;
 }

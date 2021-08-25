@@ -2,6 +2,7 @@ import "./App.scss";
 import { useEffect, useState } from "react";
 import { Balcony } from "./components/Balcony/Balcony";
 import { Brush, Brushes } from "./components/Brushes/Brushes";
+import { Materials } from "./components/Materials/Materials";
 
 function updateUrl(array: string[]): void {
   const stringArray = array.map((item, index) => item.charAt(0)).join("-");
@@ -89,48 +90,34 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="container">
-        <header>
-          <h1>Ayudenme a diseñar el balcon</h1>
-        </header>
-        <section>
-          <div>
-            <header>
-              <h3>Madera:</h3>
-            </header>
-            <p>Usado: {woodenTilesNumber}</p>
-            <p>Cajas: {Math.ceil(woodenTilesNumber / 9)}</p>
-            Sobran: {Math.ceil(woodenTilesNumber / 9) * 9 - woodenTilesNumber}
-          </div>
-          <div>
-            <header>
-              <h3>Pasto sintetico:</h3>
-            </header>
-            <p>Usado: {grassTilesNumber}</p>
-            <p>Cajas: {Math.ceil(grassTilesNumber / 9)}</p>
-            <p>
-              Sobran: {Math.ceil(grassTilesNumber / 9) * 9 - grassTilesNumber}
-            </p>
-          </div>
-        </section>
+    <div className="app container">
+      <header className="app__header">
+        <h1>Balcony Floor Design</h1>
+      </header>
+      <div className="app__body">
+        <Materials
+          woodenTiles={woodenTilesNumber}
+          grassTiles={grassTilesNumber}
+        />
         <Brushes
           selectedBrush={brush}
           onBrushSelect={(brush) => setBrush(brush)}
         />
         <Balcony tiles={tiles} onTileUpdate={(index) => updateTile(index)} />
-        <footer>
-          <input
-            type="text"
-            value={window.location.href}
-            id="current-url-input"
-          ></input>
-          <div>
-            <button onClick={() => shareLink()}>Compartir</button>
-          </div>
-          {copied && <div className="copied">Link copiado!</div>}
-        </footer>
       </div>
+      <footer className="app__footer">
+        <input
+          type="text"
+          value={window.location.href}
+          id="current-url-input"
+        ></input>
+        <div>
+          <button className="app__share" onClick={() => shareLink()}>
+            Compartir
+          </button>
+        </div>
+        {copied && <div className="copied-link">Link copiado!</div>}
+      </footer>
     </div>
   );
 }

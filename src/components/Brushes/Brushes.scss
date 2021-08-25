@@ -1,0 +1,31 @@
+.brushes {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 16px;
+}
+
+.brush {
+  height: 90px;
+  width: 90px;
+  background-size: cover;
+  cursor: pointer;
+  transition: 0.15s;
+  box-sizing: border-box;
+
+  border: 5px solid white;
+
+  &:hover {
+    border-color: turquoise;
+  }
+
+  &--wooden {
+    background-image: url(../../assets/wooden.jpg);
+  }
+  &--grass {
+    background-image: url(../../assets/grass.jpg);
+  }
+
+  &--selected {
+    border-color: steelblue;
+  }
+}

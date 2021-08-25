@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
 import "./App.scss";
-
-type Brush = "wooden" | "grass";
-
-const brushes: ["wooden", "grass"] = ["wooden", "grass"];
+import { useEffect, useState } from "react";
+import { Balcony } from "./components/Balcony/Balcony";
+import { Brush, Brushes } from "./components/Brushes/Brushes";
 
 function updateUrl(array: string[]): void {
   const stringArray = array.map((item, index) => item.charAt(0)).join("-");
@@ -116,49 +114,11 @@ function App() {
             </p>
           </div>
         </section>
-        <section>
-          <p>
-            <strong>Seleccionar material</strong>
-          </p>
-          <div className="brushes">
-            {brushes.map((item) => {
-              return (
-                <div
-                  key={item}
-                  className={`brush brush--${item} ${
-                    brush === item ? "brush--selected" : ""
-                  }`}
-                  onClick={() => setBrush(item)}
-                ></div>
-              );
-            })}
-          </div>
-        </section>
-        <section>
-          <h2>Balcony</h2>
-          <div className="balcony">
-            <div className="tiles">
-              {tiles.map((item, index) => {
-                return (
-                  <div
-                    className={`tile ${item !== "" ? `tile--${item}` : ""}`}
-                    key={index}
-                    onClick={() => updateTile(index)}
-                  />
-                );
-              })}
-            </div>
-          </div>
-          <div className="indoors">
-            <div className="indoors__left-door">
-              puerta izquierda (bloqueada)
-            </div>
-            <div className="indoors__left-window">ventanal izquierdo</div>
-            <div className="indoors__column">columna</div>
-            <div className="indoors__right-window">ventanal derecho</div>
-            <div className="indoors__right-door">puerta derecha</div>
-          </div>
-        </section>
+        <Brushes
+          selectedBrush={brush}
+          onBrushSelect={(brush) => setBrush(brush)}
+        />
+        <Balcony tiles={tiles} onTileUpdate={(index) => updateTile(index)} />
         <footer>
           <input
             type="text"

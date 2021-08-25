@@ -1,0 +1,57 @@
+.balcony {
+  border: 3px solid black;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  border-top: 1px dotted gray;
+  border-right: 1px dotted gray;
+}
+
+.tile {
+  width: 100%;
+  padding-top: 100%;
+  background-color: lightgray;
+  border-bottom: 1px dotted gray;
+  border-left: 1px dotted gray;
+  transition: 0.2s;
+  background-size: cover;
+
+  &:hover {
+    cursor: pointer;
+    background-color: gray;
+  }
+
+  &--wooden {
+    background-image: url(../../assets/wooden.jpg);
+  }
+  &--grass {
+    background-image: url(../../assets/grass.jpg);
+  }
+}
+
+.indoors {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  border-top: 1px dotted gray;
+  border-right: 1px dotted gray;
+
+  & > * {
+    grid-column: span 3;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 1em;
+    border-bottom: 1px dotted gray;
+    border-left: 1px dotted gray;
+  }
+
+  &__column {
+    grid-column: span 2;
+  }
+  &__right-door {
+    background-color: lightskyblue;
+  }
+}

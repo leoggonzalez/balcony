@@ -1,15 +1,18 @@
 import "./Balcony.scss";
 import React from "react";
+import { updateUrl } from "../../model/util";
 
 interface Props {
   tiles: string[];
+  onClear: () => void;
   onTileUpdate: (index: number) => void;
 }
 
-export function Balcony({ tiles, onTileUpdate }: Props): JSX.Element {
+export function Balcony({ tiles, onClear, onTileUpdate }: Props): JSX.Element {
   return (
     <section>
       <h2>Balcony</h2>
+      <button onClick={onClear}>Clear</button>
       <div className="balcony">
         <div className="tiles">
           {tiles.map((item, index) => {

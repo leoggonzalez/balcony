@@ -17,6 +17,15 @@ function App(): JSX.Element {
     updateUrl(updatedTiles);
   }
 
+  function handleOnClear(): void {
+    const emptyTiles = [];
+    for (let i = 0; i < 56; i++) {
+      emptyTiles.push("");
+    }
+    setTiles(emptyTiles);
+    updateUrl([]);
+  }
+
   useEffect(() => {
     setTiles(parseUrl());
   }, []);
@@ -32,7 +41,11 @@ function App(): JSX.Element {
           selectedBrush={brush}
           onBrushSelect={(brush) => setBrush(brush)}
         />
-        <Balcony tiles={tiles} onTileUpdate={(index) => updateTile(index)} />
+        <Balcony
+          tiles={tiles}
+          onTileUpdate={(index) => updateTile(index)}
+          onClear={handleOnClear}
+        />
       </div>
       <footer className="app__footer">
         <ShareButton />

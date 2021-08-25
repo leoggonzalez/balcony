@@ -24,11 +24,11 @@ export function Balcony({ tiles, onTileUpdate }: Props): JSX.Element {
         </div>
       </div>
       <div className="indoors">
-        <div className="indoors__left-door">puerta izquierda (bloqueada)</div>
-        <div className="indoors__left-window">ventanal izquierdo</div>
-        <div className="indoors__column">columna</div>
-        <div className="indoors__right-window">ventanal derecho</div>
-        <div className="indoors__right-door">puerta derecha</div>
+        <div className="indoors__left-door">left door (blocked)</div>
+        <div className="indoors__left-window">left window</div>
+        <div className="indoors__column">column</div>
+        <div className="indoors__right-window">right window</div>
+        <div className="indoors__right-door">right door</div>
       </div>
     </section>
   );

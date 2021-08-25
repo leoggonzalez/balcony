@@ -6,7 +6,7 @@ import { Materials } from "./components/Materials/Materials";
 import { updateUrl, parseUrl } from "./model/util";
 import { ShareButton } from "./components/ShareButton/ShareButton";
 
-function App() {
+function App(): JSX.Element {
   const [tiles, setTiles] = useState([""]);
   const [brush, setBrush] = useState<Brush>("wooden");
 
@@ -16,9 +16,6 @@ function App() {
     setTiles(updatedTiles);
     updateUrl(updatedTiles);
   }
-
-  const woodenTilesNumber = tiles.filter((item) => item === "wooden").length;
-  const grassTilesNumber = tiles.filter((item) => item === "grass").length;
 
   useEffect(() => {
     setTiles(parseUrl());
@@ -30,10 +27,7 @@ function App() {
         <h1>Balcony Floor Design</h1>
       </header>
       <div className="app__body">
-        <Materials
-          woodenTiles={woodenTilesNumber}
-          grassTiles={grassTilesNumber}
-        />
+        <Materials tiles={tiles} />
         <Brushes
           selectedBrush={brush}
           onBrushSelect={(brush) => setBrush(brush)}

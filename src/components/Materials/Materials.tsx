@@ -1,8 +1,7 @@
 import React from "react";
 
 interface Props {
-  woodenTiles: number;
-  grassTiles: number;
+  tiles: string[];
 }
 
 function calculateBoxesPerTiles(tiles: number): {
@@ -15,7 +14,10 @@ function calculateBoxesPerTiles(tiles: number): {
   };
 }
 
-export function Materials({ woodenTiles, grassTiles }: Props): JSX.Element {
+export function Materials({ tiles }: Props): JSX.Element {
+  const woodenTiles = tiles.filter((item) => item === "wooden").length;
+  const grassTiles = tiles.filter((item) => item === "grass").length;
+
   const { boxes: woodenBoxes, leftOver: woodenLeftOver } =
     calculateBoxesPerTiles(woodenTiles);
   const { boxes: grassBoxes, leftOver: grassLeftOver } =
@@ -25,19 +27,19 @@ export function Materials({ woodenTiles, grassTiles }: Props): JSX.Element {
     <section>
       <div>
         <header>
-          <h3>Madera:</h3>
+          <h3>Wood:</h3>
         </header>
-        <p>Usado: {woodenTiles}</p>
-        <p>Cajas: {woodenBoxes}</p>
-        Sobran: {woodenLeftOver}
+        <p>Used: {woodenTiles}</p>
+        <p>Boxes: {woodenBoxes}</p>
+        <p>Leftover: {woodenLeftOver}</p>
       </div>
       <div>
         <header>
-          <h3>Pasto sintetico:</h3>
+          <h3>Grass:</h3>
         </header>
-        <p>Usado: {grassTiles}</p>
-        <p>Cajas: {grassBoxes}</p>
-        <p>Sobran: {grassLeftOver}</p>
+        <p>USed: {grassTiles}</p>
+        <p>Boxes: {grassBoxes}</p>
+        <p>Leftover: {grassLeftOver}</p>
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
 .share-button__input {
-  // display: none;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
 }
 
 .share-button__button {

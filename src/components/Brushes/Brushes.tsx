@@ -13,9 +13,7 @@ const brushes: Brush[] = ["wooden", "grass"];
 export function Brushes({ selectedBrush, onBrushSelect }: Props): JSX.Element {
   return (
     <section>
-      <p>
-        <strong>Seleccionar material</strong>
-      </p>
+      <h2>Select material</h2>
       <div className="brushes">
         {brushes.map((item) => {
           return (

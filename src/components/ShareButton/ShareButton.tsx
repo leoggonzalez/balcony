@@ -9,6 +9,7 @@ export function ShareButton(): JSX.Element {
     setCopied(false);
     if (inputRef.current) {
       try {
+        inputRef.current.value = window.location.href;
         inputRef.current.select();
         inputRef.current.setSelectionRange(0, 99999); /* For mobile devices */
 
@@ -32,18 +33,13 @@ export function ShareButton(): JSX.Element {
 
   return (
     <div className="share-button">
-      <input
-        className="share-button__input"
-        type="text"
-        value={window.location.href}
-        ref={inputRef}
-      ></input>
+      <input className="share-button__input" type="text" ref={inputRef}></input>
       <div>
         <button className="share-button__button" onClick={() => shareLink()}>
-          Compartir
+          Share design
         </button>
       </div>
-      {copied && <div className="share-button__copied">Link copiado!</div>}
+      {copied && <div className="share-button__copied">URL Copied!</div>}
     </div>
   );
 }

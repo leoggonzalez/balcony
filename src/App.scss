@@ -15,39 +15,3 @@
 .app__footer {
   margin-top: 32px;
 }
-
-.app__share {
-  background-color: teal;
-  color: white;
-  line-height: 40px;
-  padding: 0 16px;
-  border: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    background-color: darken(teal, 2%);
-  }
-  &:active {
-    background-color: darken(teal, 4%);
-  }
-}
-
-.copied-link {
-  animation: jump 0.3s ease-in-out;
-  margin-top: 24px;
-}
-
-@keyframes jump {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  25% {
-    transform: translateY(-10px);
-  }
-  75% {
-    transform: translateY(10px);
-  }
-}
